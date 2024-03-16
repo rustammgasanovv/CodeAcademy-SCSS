@@ -1,0 +1,23 @@
+.benzer, .parent .box3, .parent .box2, .parent .box1 {
+  width: 25px;
+  height: 200px;
+}
+
+.parent {
+  width: 500px;
+  height: 100vh;
+  background-color: red;
+}
+.parent .box1 {
+  color: white;
+}
+.parent .box1 p {
+  color: white;
+  font-size: 12px;
+}
+.parent .box2 {
+  color: red;
+}
+.parent .box3 {
+  color: yellow;
+}/*# sourceMappingURL=main.css.map */

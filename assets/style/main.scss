@@ -1,0 +1,68 @@
+$renk:red;
+@mixin size($olcu:null, $color:null){
+    width: 200px;
+    height: $olcu;
+    background-color: $color;
+}
+
+$sizeler: 1,2,3,4,5,6,7,8,9,10,11,12;
+
+@each $olcu in $sizeler{
+    .col-#{$olcu}{
+        width: 20+$sizeler+px;
+    }
+}
+
+@for $i from 1 through 10{
+    .box#{$i}{
+        font-size: $i*10+0%;
+    }
+}
+
+$font-size:("kicik":12px, "orta":16px, "boyuk":20px);
+
+@function gridSystem ($olcu, $toplam){
+    @return ($olcu*100)/$toplam +px;
+}
+
+@mixin olculer($dlia, $color){
+    @if($dlina == 'a'){
+        background-color: $color;
+    }
+    @else if($dlia == 'b'){
+        color: $color;
+    }
+    @else{
+        @error 'duzgun daxil et'
+    }
+};
+
+.benzer{
+    @include olculer('a', red );
+    width: gridSystem(3, 12);
+    height: 200px;
+}
+
+.parent{
+    // @include size(100px, red);
+    width: 500px;
+    height: 100vh;
+    background-color: $renk;
+    .box1{
+    @extend .benzer;
+    color: white;
+    p{
+        color: white;
+        font-size: map-get($font-size, "kicik");
+    }
+    }
+    .box2{
+        @extend .benzer;
+        color: red;
+    }
+    .box3{
+        @extend .benzer;
+        color: yellow;
+    }
+}
+
